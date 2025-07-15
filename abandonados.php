@@ -1,4 +1,5 @@
 <?php
+include 'db.php';
 session_start(); // Inicia la sesión PHP para mantener al usuario autenticado
 
 //  autenticado en la sesión.
@@ -8,7 +9,6 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-include 'db.php';
 // Obtiene el ID del usuario actual
 $usuario_id = $_SESSION['usuario']['id'];
 $estado = 'abandonado';//buscar solo los libros que estén marcados como "abandonado"
@@ -53,6 +53,5 @@ $resultado = $stmt->get_result();
    
     <a href="biblioteca.php" class="boton-footer">Volver al inicio</a>
   </footer>
-    
 </body>
 </html>
